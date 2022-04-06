@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:8080/movies/'
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
+// const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+// const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
 
 const main = document.getElementById('main')
 const form = document.getElementById('form')
@@ -14,6 +14,13 @@ async function getMovies(url) {
     const data = await res.json()
     console.log(data)
     showMovies(data)
+}
+async function getMoviesSearch(url, searchterm) {
+    const res = await fetch(url)
+    const data = await res.json()
+    let dataFilter = data.filter(obj => obj.title.toLowerCase().includes(searchterm.toLowerCase()))
+    console.log(dataFilter)
+    showMovies(dataFilter)
 }
 
 function showMovies(movies) {
@@ -56,7 +63,7 @@ form.addEventListener('submit', (e) => {
     const searchTerm = search.value
 
     if(searchTerm && searchTerm !== '') {
-        getMovies(SEARCH_API + searchTerm)
+        getMoviesSearch(API_URL, searchTerm)
 
         search.value = ''
     } else {
