@@ -39,7 +39,7 @@ function showMovies(movies) {
            <span class="${getClassByRate(score)}">${score}</span>
             </div>
             <div class="overview">
-          <h3>Overview</h3>
+          <h3>Synopsis</h3>
           ${synopsis}
         </div>
         `
