@@ -122,3 +122,10 @@ main {
 .movie:hover .overview {
     transform: translateY(0);
 }
+
+@media only screen and (max-width:700px) {
+    .col-center {
+        width: 95%;
+        transition: 1s;
+    }
+}
