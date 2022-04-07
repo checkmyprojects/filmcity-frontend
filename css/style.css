@@ -14,6 +14,11 @@
     float: none;
     margin: 0 auto;
     width: 50%;
+    background-image: url(images/nave.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: Z-repeat;
+    background-size: cover;
 }
 
 .bg-form {
@@ -34,7 +39,23 @@
     background-color: #ffa6a675!important;
     padding: 1rem !important;
     border: 3px solid #93b4d6c5!important;
-    margin: 0.5rem;
+    margin: 0.5rem!important;
+    font-size: 1rem!important;
+    font-weight: 500!important;
+    line-height: 1!important;
+}
+
+.custom-size {
+    margin: auto;
+    height: 100%;
+    width: 95%;
+}
+
+.form-label {
+    margin-left: 1rem;
+    background-color: #ffffffc2;
+    padding: 6px;
+    border-radius: 1rem;
 }
 
 body {
