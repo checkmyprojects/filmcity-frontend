@@ -14,11 +14,6 @@
     float: none;
     margin: 0 auto;
     width: 50%;
-    background-image: url(images/nave.png);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: Z-repeat;
-    background-size: cover;
 }
 
 .bg-form {
@@ -49,6 +44,24 @@
     margin: auto;
     height: 100%;
     width: 95%;
+}
+
+.orb {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 33%;
+    position: fixed;
+    top: 10%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #0084ff26;
+    z-index: 3;
+}
+
+.right {
+    float: right;
 }
 
 .form-label {
@@ -169,5 +182,9 @@ main {
     .col-center {
         width: 95%;
         transition: 1s;
+    }
+    .bg-input-padding {
+        margin: 0!important;
+        transition: 0.5s;
     }
 }
