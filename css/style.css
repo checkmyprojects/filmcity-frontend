@@ -37,7 +37,7 @@
 
 .navbarMain{
   width: 100%;
-  padding: 2%;
+  padding: 3%;
   background-color: #4a4b4dfd;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 header {
-  padding: 0.5rem;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   background-color: var(--secondary-color);
