@@ -11,6 +11,30 @@
   box-sizing: border-box;
 }
 
+.screen-darken{
+  content: ''; 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  pointer-events: none;
+  z-index:10; opacity:1; 
+  visibility:visible;
+  position: fixed;
+}
+
+.navbar{
+  position: relative;
+  z-index: 15; 
+}
+#navMenuBar{
+  display: flex;
+  justify-content: space-around;
+  height: 5rem;
+  overflow:visible;
+}
+
 body {
   background-color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
@@ -20,7 +44,7 @@ body {
 header {
   padding: 0.5rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: var(--secondary-color);
 }
 
