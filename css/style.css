@@ -16,6 +16,27 @@
     width: 50%;
 }
 
+.bg-form {
+    background-image: url("../images/logo.png");
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 100%;
+    /* You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    ;
+}
+
+.bg-input-padding {
+    background-color: #ffa6a675!important;
+    padding: 1rem !important;
+    border: 3px solid #93b4d6c5!important;
+    margin: 0.5rem;
+}
+
 body {
     background-color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
