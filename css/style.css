@@ -28,11 +28,17 @@
   position: relative;
   z-index: 15; 
 }
-#navMenuBar{
+.navMenuBar{
   display: flex;
   justify-content: space-around;
+  gap: 25rem;
   height: 5rem;
-  overflow:visible;
+}
+
+.navbarMain{
+  width: 100%;
+  padding: 2%;
+  background-color: #4a4b4dfd;
 }
 
 body {
@@ -141,3 +147,4 @@ main {
 .movie:hover .overview {
   transform: translateY(0);
 }
+
