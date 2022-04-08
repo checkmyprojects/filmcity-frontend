@@ -55,14 +55,23 @@ form.addEventListener('submit', (e) => {
 
     const searchTerm = search.value
 
-    if(searchTerm && searchTerm !== '') {
-        getMovies(SEARCH_API + searchTerm)
+    if (searchTerm && searchTerm !== '') {
+        getMoviesSearch(API_URL, searchTerm)
 
         search.value = ''
     } else {
         window.location.reload()
     }
 })
+
+async function getMoviesSearch(url, searchterm) {
+    const res = await fetch(url)
+    const data = await res.json()
+    let dataFilter = data.filter(obj => obj.title.toLowerCase().includes(searchterm.toLowerCase()))
+    console.log(dataFilter)
+    showMovies(dataFilter)
+}
+
 //HAM MENU
 document.addEventListener("DOMContentLoaded", function(){
     document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
