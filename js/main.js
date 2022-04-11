@@ -70,6 +70,7 @@ function showOneMovie(movie) {
         <input type="text" id="score" class="search" placeholder="score" value='${movie.score}'>
         <img onclick="saveMovie()"  id="coverImagePic" src='${movie.coverImage}' alt="">
         <button onclick="saveMovie()" id="save">SAVE</button>
+        <button onclick="deleteMovie('${API_URL+movie.id}')">DELETE</button>
       </form>
         `
         main.appendChild(movieEl)
@@ -123,6 +124,15 @@ form.addEventListener('submit', (e) => {
             body: JSON.stringify(data)
           });
     }
+
+    // delete_url = http://localhost:8080/movies/delete + id
+async function deleteMovie(delete_url)
+{
+    const response = await fetch(delete_url, {method:"DELETE"});
+    console.log(await response.json());
+    // const response2 = await fetch("http://127.0.0.1:8080/movies/");
+    // showMovies(await response2.json());
+}
     //animation nave
 // const orb = document.querySelector('.orb'),
 //     ease = 0.05,
