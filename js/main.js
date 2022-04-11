@@ -1,10 +1,8 @@
 const API_URL = 'http://localhost:8080/movies/'
-    // const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
     // const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
 
 const main = document.getElementById('main')
-const form = document.getElementById('form')
-const search = document.getElementById('search')
+
 
 // Get initial movies
 getMovies(API_URL)
@@ -27,20 +25,25 @@ function showMovies(movies) {
     main.innerHTML = ''
 
     movies.forEach((movie) => {
-        const { title, coverImage, synopsis, score } = movie
+        const { title, coverImage, synopsis, score, id } = movie
 
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
-            <img src="${coverImage}" alt="${title}">
+       
+        <a data-bs-toggle="modal" data-bs-target="#single-movie" id="openMovie">
+   
+          <img src="${coverImage}" alt="${title}"> 
+          </a>
             <div class="movie-info">
           <h3>${title}</h3>
-           <span class="${getClassByRate(score)}">${score}</span>
+          <span class="${getClassByRate(score)}">${score}</span>
             </div>
-            <div class="overview">
-          <h3>Synopsis</h3>
-          ${synopsis}
+            <div>
+          <h3 id="openSingle">${id}</h3>
+         
+         
         </div>
         `
         main.appendChild(movieEl)
@@ -58,19 +61,20 @@ function getClassByRate(vote) {
 }
 
 form.addEventListener('submit', (e) => {
-        e.preventDefault()
+    e.preventDefault()
 
-        const searchTerm = search.value
+    const searchTerm = search.value
 
-        if (searchTerm && searchTerm !== '') {
-            getMoviesSearch(API_URL, searchTerm)
+    if (searchTerm && searchTerm !== '') {
+        getMoviesSearch(API_URL, searchTerm)
 
-            search.value = ''
-        } else {
-            window.location.reload()
-        }
-    })
-    //animation nave
+        search.value = ''
+    } else {
+        window.location.reload()
+    }
+})
+
+//animation nave
 const orb = document.querySelector('.orb'),
     ease = 0.05,
     start_position = orb.offsetTop;
@@ -106,3 +110,11 @@ function animation_loop() {
     total_offset += difference;
     requestAnimationFrame(animation_loop);
 }
+
+//jquery bootstrap stars
+$(document).ready(function() {
+    $('#input-3').rating({ displayOnly: true, step: 0.5 });
+    $('#input-5').rating({ clearCaption: 'No stars yet' });
+    $('#input-8').rating({ rtl: true, containerClass: 'is-star' });
+    $('#input-9').rating();
+});

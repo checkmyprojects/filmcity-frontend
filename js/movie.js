@@ -1,32 +1,31 @@
-const API_URL = 'http://localhost:8080/movies/'
-// const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-// const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
-
-const main = document.getElementById('main')
-const form = document.getElementById('form')
-const search = document.getElementById('search')
-
 const button = document.querySelector('#save');
-button.addEventListener('click', saveMovie);
+const openMovie = document.querySelector('#openMovie');
+var str;
+const openSingle = document.getElementById('openSingle');
+if (openSingle != null) {
+    str = openSingle.value;
+} else {
+    str = null;
+}
 
-document.addEventListener("DOMContentLoaded", getOneMovie('http://localhost:8080/movies/1'));  
 
-async function getOneMovie(url) {
-    const res = await fetch(url)
+
+async function getOneMovie() {
+    const res = await fetch()
     const data = await res.json()
     console.log(data)
     printMovie(data)
 }
-async function modifyMovie(data){
+async function modifyMovie(data) {
     const response2 = await fetch('http://127.0.0.1:8080/movies', {
         method: 'PUT',
         headers: {
-          'Content-type': 'application/json'
+            'Content-type': 'application/json'
         },
         body: JSON.stringify(data)
-      });
+    });
 }
-async function printMovie(data){
+async function printMovie(data) {
     document.getElementById('id').value = data.id
     document.getElementById('title').value = data.title
     document.getElementById('coverImage').value = data.coverImage
@@ -38,7 +37,8 @@ async function printMovie(data){
     document.getElementById('booked').value = data.booked
     document.getElementById('score').value = data.score
 }
-function saveMovie(){
+
+function saveMovie() {
     let dataModified = {}
     dataModified.id = document.getElementById('id').value
     dataModified.title = document.getElementById('title').value
@@ -50,13 +50,14 @@ function saveMovie(){
     dataModified.booked = document.getElementById('booked').value
     dataModified.score = document.getElementById('score').value
     modifyMovie(dataModified);
+    window.location.href = "index.html";
 
 
 }
 
 
 
-
+/*
 // Get initial movies
 // getMovies(API_URL)
 
@@ -121,3 +122,28 @@ function saveMovie(){
 //         window.location.reload()
 //     }
 // })
+
+document.querySelector('#getCocktail').addEventListener('click', getCocktail)
+function getCocktail(){
+    const search = document.querySelector("#search").value;
+    searchCocktail(search);
+}
+async function searchCocktail(string){
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${string}`)
+        .then(res => res.json()) // parse response as JSON
+        .then(data => {
+            console.log(data)
+            data.drinks.forEach((drink) =>console.log(drink))
+            const myDrinks = document.querySelector('#myDrinks')
+            myDrinks.innerHTML = ''
+            data.drinks.forEach((drink) => {
+                const drinkNew = document.createElement('div')
+                drinkNew.classList.add('drink')
+                
+                drinkNew.innerHTML = `
+                <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
+                <h2>${drink.strDrink}</h2>
+                <h3 onclick="changeText(${drink.idDrink})">${drink.strInstructions}</h3>
+                `
+
+*/

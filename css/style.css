@@ -10,10 +10,16 @@
     box-sizing: border-box;
 }
 
-.col-center {
+.col-center-small {
     float: none;
     margin: 0 auto;
     width: 50%;
+}
+
+.col-big {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .bg-form {
@@ -31,7 +37,7 @@
 }
 
 .bg-input-padding {
-    background-color: #ffa6a675!important;
+    background-color: #fbffa6d4!important;
     padding: 1rem !important;
     border: 3px solid #93b4d6c5!important;
     margin: 0.5rem!important;
@@ -57,11 +63,15 @@
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background-color: #0084ff26;
-    z-index: 3;
+    z-index: -1;
 }
 
 .right {
     float: right;
+}
+
+.left {
+    float: left;
 }
 
 .form-label {
@@ -80,7 +90,7 @@ body {
 header {
     padding: 0.5rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background-color: var(--secondary-color);
 }
 
@@ -104,14 +114,18 @@ header {
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-count: 5;
+    column-gap: 1rem;
+    height: 100vh;
 }
 
 .movie {
-    width: 300px;
-    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.2rem;
     /* background-color: var(--secondary-color); */
     background-color: #9ADCFF;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
@@ -123,18 +137,25 @@ main {
 }
 
 .movie img {
-    width: 100%;
+    max-width: 735px;
+    width: 71%;
+    border: 1px solid rgba(128, 128, 128, 0.641);
+    border-radius: 1rem;
+    height: 43vh;
 }
 
-.movie-info {
-    color: #eee;
-    /* color: #eee; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.2rem;
-    padding: 0.5rem 1rem 1rem;
-    letter-spacing: 0.5px;
+s .movie-info {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0px;
+    position: absolute;
+    left: 0;
+    bottom: 14px;
+    height: 100%;
+    right: 0;
+    max-height: 26%;
+    transform: translateY(35%);
+    overflow-y: hidden;
+    transition: transform 0.3s ease-in;
 }
 
 .movie-info h3 {
@@ -162,15 +183,15 @@ main {
 }
 
 .overview {
-    background-color: #fff;
-    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.615);
+    padding: 1rem;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
-    max-height: 100%;
-    transform: translateY(101%);
-    overflow-y: auto;
+    max-height: 5%;
+    transform: translateY(15%);
+    overflow-y: hidden;
     transition: transform 0.3s ease-in;
 }
 
@@ -186,5 +207,12 @@ main {
     .bg-input-padding {
         margin: 0!important;
         transition: 0.5s;
+    }
+    main {
+        grid-template-columns: repeat(1, 1fr);
+        column-count: 1;
+        column-gap: 0.5rem;
+        height: 587vh;
+        transition: 1s;
     }
 }
