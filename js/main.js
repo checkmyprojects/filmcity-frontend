@@ -68,7 +68,7 @@ function showOneMovie(movie) {
         <input type="text" id="renter" class="search" placeholder="renter" value='${movie.renter}'>
         <input type="text" id="booked" class="search" placeholder="booked" value='${movie.booked}'>
         <input type="text" id="score" class="search" placeholder="score" value='${movie.score}'>
-        <img id="coverImagePic" src='${movie.coverImage}' alt="">
+        <img onclick="saveMovie()"  id="coverImagePic" src='${movie.coverImage}' alt="">
         <button onclick="saveMovie()" id="save">SAVE</button>
       </form>
         `
