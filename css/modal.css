@@ -65,6 +65,8 @@
 .modal-body {
   padding: 2px 16px;
   color: white;
+  display: flex;
+  justify-content: space-around;
 }
 
 .modal-footer {
@@ -75,13 +77,41 @@
 
 .modal-text{
   color: black;
+  font-weight: bold;
   background-color: rgba(255, 255, 255, 0.747);
 }
-#form img{
-  max-width: 30%;
+#mymodal img{
+  max-width: 40%;
 }
+
+#form{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 40%;
+}
+
+#form *{
+  margin: 1px 5px;
+}
+
 #mymodal{
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#synopsis{
+  background-color: rgba(255, 255, 255, 0.747);
+  font-weight: bold;
+}
+
+/*Media queries*/
+@media screen and (max-width: 800px) {
+  #mymodal img{
+    display: none;
+  }
+  #form{
+    width: 100%;
+  }
 }

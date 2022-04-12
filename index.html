@@ -61,7 +61,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h2>Jurassic Park</h2>
+        <h2>Movie Info</h2>
       </div>
       <div id="mymodal" class="modal-body">
         <form id="form">
@@ -70,20 +70,22 @@
             <input type="text" id="coverImage" class="modal-text" placeholder="coverImage">
             <input type="text" id="director" class="modal-text" placeholder="director">
             <input type="text" id="year" class="modal-text" placeholder="year">
-            <input type="text" id="synopsis" class="modal-text" placeholder="synopsis">
+            <!-- <input type="text" id="synopsis" class="modal-text" placeholder="synopsis"> -->
+            <textarea name="" id="synopsis" cols="30" rows="6"></textarea>
             <input type="text" id="renter" class="modal-text" placeholder="renter">
             <input type="text" id="booked" class="modal-text" placeholder="booked">
             <input type="text" id="score" class="modal-text" placeholder="score">
-            <img onClick="saveMovie()" id="coverImagePic" src="" alt="">
             <button onClick="saveMovie()" id="save">SAVE</button>
           </form>
-        <p>Synopsis</p>
+          <img onClick="saveMovie()" id="coverImagePic" src="" alt="">
+        <!-- <p>Synopsis</p>
         <p>Dinosaurios y más cosas</p>
         <p>Año: 1995</p>
         <p>Director: Steven Spielberg</p>
-        <p>Valoración ⭐⭐⭐⭐⭐</p>
+        <p>Valoración ⭐⭐⭐⭐⭐</p> -->
       </div>
       <div class="modal-footer">
+        <span>DELETE</span>
         <span>SAVE</span>
         <span>EDIT</span>
         <h3></h3>
