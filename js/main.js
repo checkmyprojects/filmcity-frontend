@@ -37,7 +37,7 @@ function showMovies(movies) {
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
-            <img src="${coverImage}" alt="${title}">
+            <img onClick="showMovieModal()" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
            <span class="${getClassByRate(score)}">${score}</span>
