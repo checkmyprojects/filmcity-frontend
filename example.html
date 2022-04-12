@@ -1,0 +1,45 @@
+<div id="container">
+    <button class="click-btn">The First Button</button>
+</div>
+
+<script>
+    /**
+     * First let's create a function
+     * */
+
+    function dynamicFunction(e) {
+        e.preventDefault();
+        alert(`You have clicked on ${e.target.innerHTML}`)
+    }
+
+    /**
+     * Now let's create our dynamic element
+     * */
+
+    //First we select our container
+    const container = document.querySelector("#container");
+
+    //Then, we create a button
+    const btn = document.createElement("button");
+    //Then, we add it the same as their respective siblings
+    btn.className = "click-btn";
+    //Now, we add it some text
+    btn.innerText = "The dynamically created button";
+    //Lastly, append it to the container
+    container.appendChild(btn);
+
+    /**
+     * Since we are going to attach eventListener to a class
+     * we need a loop
+     * */
+
+    //Let's store our elements to variable
+
+    const elements = document.querySelectorAll(".click-btn");
+
+    //Then, we loop through those elements
+    for (let i = 0; i < elements.length; i++) {
+        //We add eventListener to each element
+        elements[i].addEventListener("click", dynamicFunction);
+    }
+</script>
