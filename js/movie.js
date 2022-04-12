@@ -1,13 +1,13 @@
+const form = document.getElementById('form')
+const search = document.getElementById('search')
 const button = document.querySelector('#save');
 const openMovie = document.querySelector('#openMovie');
-var str;
-const openSingle = document.getElementById('openSingle');
-if (openSingle != null) {
-    str = openSingle.value;
-} else {
-    str = null;
-}
+const openSingle = document.getElementById('openSingle').value;
 
+//button.addEventListener('click', saveMovie);
+
+openMovie.addEventListener('click', getOneMovie(`http://localhost:8080/movies/${openSingle}`));
+console.log(openSingle);
 
 
 async function getOneMovie() {
@@ -122,28 +122,4 @@ function saveMovie() {
 //         window.location.reload()
 //     }
 // })
-
-document.querySelector('#getCocktail').addEventListener('click', getCocktail)
-function getCocktail(){
-    const search = document.querySelector("#search").value;
-    searchCocktail(search);
-}
-async function searchCocktail(string){
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${string}`)
-        .then(res => res.json()) // parse response as JSON
-        .then(data => {
-            console.log(data)
-            data.drinks.forEach((drink) =>console.log(drink))
-            const myDrinks = document.querySelector('#myDrinks')
-            myDrinks.innerHTML = ''
-            data.drinks.forEach((drink) => {
-                const drinkNew = document.createElement('div')
-                drinkNew.classList.add('drink')
-                
-                drinkNew.innerHTML = `
-                <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
-                <h2>${drink.strDrink}</h2>
-                <h3 onclick="changeText(${drink.idDrink})">${drink.strInstructions}</h3>
-                `
-
 */
