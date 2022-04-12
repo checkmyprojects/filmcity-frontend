@@ -63,7 +63,20 @@
         <span class="close">&times;</span>
         <h2>Jurassic Park</h2>
       </div>
-      <div class="modal-body">
+      <div id="mymodal" class="modal-body">
+        <form id="form">
+            <input type="text" id="id" class="modal-text" placeholder="id">
+            <input type="text" id="title" class="modal-text" placeholder="title">
+            <input type="text" id="coverImage" class="modal-text" placeholder="coverImage">
+            <input type="text" id="director" class="modal-text" placeholder="director">
+            <input type="text" id="year" class="modal-text" placeholder="year">
+            <input type="text" id="synopsis" class="modal-text" placeholder="synopsis">
+            <input type="text" id="renter" class="modal-text" placeholder="renter">
+            <input type="text" id="booked" class="modal-text" placeholder="booked">
+            <input type="text" id="score" class="modal-text" placeholder="score">
+            <img onClick="saveMovie()" id="coverImagePic" src="" alt="">
+            <button onClick="saveMovie()" id="save">SAVE</button>
+          </form>
         <p>Synopsis</p>
         <p>Dinosaurios y más cosas</p>
         <p>Año: 1995</p>
@@ -78,11 +91,13 @@
     </div>
   
   </div>
-  
+
+<!-- modal end -->
 
     <main id="main"></main>
     <script src="js/main.js"></script>
-    <script src="js/modal.js"></script>
+    <!-- <script src="js/movie.js"></script>
+    <script src="js/modal.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>

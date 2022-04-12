@@ -23,6 +23,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
     }
 }
-function showMovieModal(){
+function showMovieModal(url){
     modal.style.display = "block";
+    getOneMovie(url)
 }

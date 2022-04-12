@@ -22,7 +22,7 @@
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  width: 90%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -62,10 +62,26 @@
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+  color: white;
+}
 
 .modal-footer {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
+}
+
+.modal-text{
+  color: black;
+  background-color: rgba(255, 255, 255, 0.747);
+}
+#form img{
+  max-width: 30%;
+}
+#mymodal{
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
