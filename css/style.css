@@ -84,7 +84,8 @@ main {
 #addBtn {
   width: 300px;
   margin: 1rem;
-  background-color: #9ADCFF;
+  /*background-color: #9ADCFF;*/
+  background-color: #41e74f;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
@@ -96,8 +97,8 @@ main {
 .movie {
   width: 300px;
   margin: 1rem;
-  background-color: var(--secondary-color);
-  background-color: #9ADCFF;
+  /*background-color: #9ADCFF;*/
+  background-color: #41e74f;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
