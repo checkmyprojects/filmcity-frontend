@@ -1,12 +1,10 @@
 const API_URL = 'http://localhost:8080/movies/'
-// const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-// const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
 
 const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
-// Get initial movies
+// get movies
 getMovies(API_URL)
 
 async function getMovies(url) {
@@ -14,6 +12,13 @@ async function getMovies(url) {
     const data = await res.json()
     console.log(data)
     showMovies(data)
+}
+async function getMoviesSearch(url, searchterm) {
+    const res = await fetch(url)
+    const data = await res.json()
+    let dataFilter = data.filter(obj => obj.title.toLowerCase().includes(searchterm.toLowerCase()))
+    console.log(dataFilter)
+    showMovies(dataFilter)
 }
 
 function showMovies(movies) {
@@ -26,7 +31,7 @@ function showMovies(movies) {
     </div>`
 
     movies.forEach((movie) => {
-        const { title, coverImage, synopsis, score} = movie
+        const { title, coverImage, synopsis, score } = movie
 
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
@@ -38,7 +43,7 @@ function showMovies(movies) {
            <span class="${getClassByRate(score)}">${score}</span>
             </div>
             <div class="overview">
-          <h3>Overview</h3>
+          <h3>Synopsis</h3>
           ${synopsis}
         </div>
         `
@@ -47,9 +52,9 @@ function showMovies(movies) {
 }
 
 function getClassByRate(vote) {
-    if(vote >= 4) {
+    if (vote >= 4) {
         return 'green'
-    } else if(vote >= 2) {
+    } else if (vote >= 2) {
         return 'orange'
     } else {
         return 'red'
@@ -57,18 +62,33 @@ function getClassByRate(vote) {
 }
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault()
+        e.preventDefault()
 
-    const searchTerm = search.value
+        const searchTerm = search.value
 
-    if (searchTerm && searchTerm !== '') {
-        getMoviesSearch(API_URL, searchTerm)
+        if (searchTerm && searchTerm !== '') {
+            getMoviesSearch(API_URL, searchTerm)
 
-        search.value = ''
-    } else {
-        window.location.reload()
+            search.value = ''
+        } else {
+            window.location.reload()
+        }
+    })
+    //animation nave
+const orb = document.querySelector('.orb'),
+    ease = 0.05,
+    start_position = orb.offsetTop;
+let scroll_request = 0,
+    total_offset = 0,
+    animation_running = false;
+
+function animate_scroll() {
+    scroll_request++;
+    if (!animation_running) {
+        animation_running = true;
+        animation_loop();
     }
-})
+}
 
 async function getMoviesSearch(url, searchterm) {
     const res = await fetch(url)
@@ -91,5 +111,4 @@ document.addEventListener("DOMContentLoaded", function(){
         document.body.removeChild(document.querySelector('.screen-darken'));
       });
     });
-  
   }); 
