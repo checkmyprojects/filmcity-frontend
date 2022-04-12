@@ -18,6 +18,12 @@ async function getMovies(url) {
 
 function showMovies(movies) {
     main.innerHTML = ''
+    main.innerHTML= `
+    <div id="addBtn" class="d-flex align-center justify-content-center">
+        <a id="btnAdd" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: left;">
+            <i class="light bi bi-plus-circle" style="font-size: 14rem;"></i><span></span>
+        </a>
+    </div>`
 
     movies.forEach((movie) => {
         const { title, coverImage, synopsis, score} = movie
