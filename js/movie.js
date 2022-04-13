@@ -24,6 +24,15 @@ async function modifyMovie(data) {
         },
         body: JSON.stringify(data)
     });
+    async function createMovie(data) {
+        const response2 = await fetch('http://127.0.0.1:8080/movies', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+    }
 }
 async function printMovie(data) {
     document.getElementById('id').value = data.id

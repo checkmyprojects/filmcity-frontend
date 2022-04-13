@@ -132,11 +132,11 @@ body {
 }
 
 header {
-    <<<<<<< HEAD padding: 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     background-color: var(--secondary-color);
-    =======padding: 0.5rem;
+    padding: 0.5rem;
     display: flex;
     justify-content: flex-start;
     background-color: var(--secondary-color);
@@ -157,7 +157,6 @@ header {
     z-index: 99999999999;
     top: 0px;
     right: 10px;
-    >>>>>>>modal
 }
 
 .search {
@@ -194,7 +193,6 @@ main {
 }
 
 .movie {
-    <<<<<<< HEAD width: 300px;
     margin: 1rem;
     background-color: var(--secondary-color);
     background-color: #9ADCFF;
@@ -204,7 +202,7 @@ main {
     border-radius: 3px;
     border: 3px solid white;
     border-radius: 10px;
-    =======display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 5%;
@@ -261,7 +259,6 @@ main {
     border-radius: 3px;
     /* border: 3px solid white; */
     border-radius: 10px;
-    >>>>>>>modal
 }
 
 .movie img {
@@ -274,14 +271,14 @@ main {
 }
 
 .movie-info {
-    <<<<<<< HEAD color: #eee;
+    color: #eee;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.2rem;
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
-    =======background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     padding: 0px;
     position: absolute;
     left: 0;
@@ -293,7 +290,6 @@ main {
     overflow-y: hidden;
     transition: transform 0.3s ease-in;
     text-align: center;
-    >>>>>>>modal
 }
 
 .movie-info h6 {
@@ -301,17 +297,16 @@ main {
 }
 
 .movie-info span {
-    <<<<<<< HEAD background-color: var(--primary-color);
+    background-color: var(--primary-color);
     background-color: #bce7ff;
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
-    =======/* background-color: var(--primary-color); */
+    /* background-color: var(--primary-color); */
     background-color: #bce7ff;
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
-    >>>>>>>modal
 }
 
 .movie-info span.green {
@@ -326,8 +321,22 @@ main {
     color: red;
 }
 
-.overview {
-    <<<<<<< HEAD background-color: rgb(247, 244, 246);
+.modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+    flex-direction: row-reverse;
+    align-content: flex-start;
+}
+
+
+/*.overview {
+    background-color: rgb(247, 244, 246);
     padding: 2rem;
     position: absolute;
     left: 0;
@@ -337,7 +346,7 @@ main {
     transform: translateY(101%);
     overflow-y: auto;
     transition: transform 0.3s ease-in;
-    =======background-color: rgba(255, 255, 255, 0.615);
+    background-color: rgba(255, 255, 255, 0.615);
     padding: 1rem;
     position: absolute;
     left: 0;
@@ -347,14 +356,14 @@ main {
     transform: translateY(15%);
     overflow-y: hidden;
     transition: transform 0.3s ease-in;
-    >>>>>>>modal
 }
 
 .movie:hover .overview {
     transform: translateY(0);
 }
+*/
 
-<<<<<<< HEAD=======@media only screen and (max-width:700px) {
+@media only screen and (max-width:700px) {
     .col-center {
         width: 95%;
         transition: 1s;
@@ -378,5 +387,3 @@ main {
         height: 77vh;
     }
 }
-
->>>>>>>modal

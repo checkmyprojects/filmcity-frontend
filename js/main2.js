@@ -1,9 +1,7 @@
-const API_URL = 'http://localhost:8080/movies/';
-const movies = [];
+const API_URL = 'http://localhost:8080/movies/'
 
+const rate = document.getElementById('rateMe1')
 
-// const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-// const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
 
 const main = document.getElementById('main')
 const single_main = document.getElementById('single_main')
@@ -40,6 +38,8 @@ function showMovies(movies) {
           <div class="container">
          <span id="rateMe1"class="${getClassByRate(score)}></span>
           </div>
+          </div>
+            <div>
          </div>
         `
         main.appendChild(movieEl)
@@ -64,20 +64,11 @@ async function getOneMovie(url) {
 }
 
 function showMovie(movie) {
-    single_main.innerHTML = ``;
-    const { title, coverImage, synopsis, score, year, id } = movie
+    single_main.innerHTML = '';
+    const { title, coverImage, synopsis, score, year } = movie
     const movieAlone = document.createElement('div')
     movieAlone.classList.add('movie_single')
-    movieAlone.innerHTML = `<div class="modal-header">
-    <a class="left"> <i class="bi bi-pen"></i></a>
-    <button   onclick="deleteOneMovie('${API_URL+id}')"class="left" ><i class="bi bi-trash"></i></button>
-    <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="left"><i class="bi bi-file-plus-fill"></i></a>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-
-</div>
-    <div class="card movie_card">
-    
+    movieAlone.innerHTML = `	<div class="card movie_card">
         <img src="${coverImage}" class="card-img-top" alt="...">
         <div class="card-body">
             <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
@@ -87,60 +78,12 @@ function showMovie(movie) {
                  <p>${synopsis}"</p>
                  <div class="container">
                  <span id="rateMe1">"${score}"</span>
-        </div>
+                 </div>
                  
         </div>
-      </div>
-      </div>
-      `
+      </div>`
     single_main.appendChild(movieAlone)
 }
-
-
-async function deleteOneMovie(urlId) {
-    const response = await fetch(urlId, {
-        method: 'DELETE',
-        headers: {
-            'Content-type': 'application/json'
-        },
-    });
-    window.location.reload()
-    console.log(` the movie to delete is ${urlId}`)
-}
-
-
-async function createNewProfile(profile) {
-    const formData = new FormData();
-    formData.append('first_name', profile.firstName);
-    formData.append('last_name', profile.lastName);
-    formData.append('email', profile.email);
-    return fetch('http://example.com/api/v1/registration', {
-        method: 'POST',
-        body: formData
-    }).then(response => response.json())
-}
-
-async function modifyMovie(data) {
-    const response2 = await fetch('http://127.0.0.1:8080/movies', {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    async function createMovie(data) {
-        const response2 = await fetch('http://127.0.0.1:8080/movies', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-    }
-}
-
-
-
 
 
 
@@ -189,4 +132,46 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+});
+//animation nave
+const orb = document.querySelector('.orb'),
+    ease = 0.05,
+    start_position = orb.offsetTop;
+let scroll_request = 0,
+    total_offset = 0,
+    animation_running = false;
+
+function animate_scroll() {
+    scroll_request++;
+    if (!animation_running) {
+        animation_running = true;
+        animation_loop();
+    }
+}
+scroll_request++;
+
+if (!animation_running) {
+    animation_running = true;
+    animation_loop();
+}
+
+function animation_loop() {
+    let current_offset = window.pageYOffset;
+    let difference = current_offset_total_offset;
+    different *= ease;
+    if (Math.abs(difference) < 0.05) {
+        scroll_request = 0;
+        total_offset = current_offset;
+        animation_running = false;
+        return;
+    }
+    orb.style.top = `${start_position-total_offset}px`;
+    total_offset += difference;
+    requestAnimationFrame(animation_loop);
+}
+
+//jquery bootstrap stars
+// Rating Initialization
+$(document).ready(function() {
+    $('#rateMe1').mdbRate();
 });

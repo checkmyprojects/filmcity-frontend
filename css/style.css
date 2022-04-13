@@ -82,34 +82,36 @@
     border-radius: 1rem;
 }
 
-.screen-darken{
-  content: ''; 
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0,0,0,.5);
-  pointer-events: none;
-  z-index:10; opacity:1; 
-  visibility:visible;
-  position: fixed;
+.screen-darken {
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
 }
 
-.navbar{
-  position: relative;
-  z-index: 15; 
-}
-.navMenuBar{
-  display: flex;
-  justify-content: space-around;
-  gap: 25rem;
-  height: 1rem;
+.navbar {
+    position: relative;
+    z-index: 15;
 }
 
-.navbarMain{
-  width: 100%;
-  padding: 1rem;
-  background-color: #4a4b4dfd;
+.navMenuBar {
+    display: flex;
+    justify-content: space-around;
+    gap: 25rem;
+    height: 1rem;
+}
+
+.navbarMain {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4a4b4dfd;
 }
 
 body {
@@ -130,34 +132,10 @@ body {
 }
 
 header {
-<<<<<<< HEAD
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--secondary-color);
-=======
-    padding: 0.5rem;
+    padding: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: var(--secondary-color);
-    height: 2rem;
-    border-radius: 1.7rem;
-}
-
-#bottonMas {
-    float: left;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-}
-
-.container_search {
-    position: absolute;
-    z-index: 99999999999;
-    top: 0px;
-    right: 10px;
->>>>>>> modal
 }
 
 .search {
@@ -194,76 +172,16 @@ main {
 }
 
 .movie {
-<<<<<<< HEAD
-  width: 300px;
-  margin: 1rem;
-  background-color: var(--secondary-color);
-  background-color: #9ADCFF;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-  border-radius: 3px;
-  border: 3px solid white;
-  border-radius: 10px;
-=======
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 5%;
-    margin: 0.2rem;
-    height: 45vh;
-    /* background-color: var(--secondary-color); */
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secondary-color);
     background-color: #9ADCFF;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     border-radius: 3px;
-    /* border: 3px solid white; */
+    border: 3px solid white;
     border-radius: 10px;
-}
-
-.movie_card {
-    padding: 0 !important;
-    width: 15rem;
-    margin: 14px;
-    border-radius: 10px;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
-}
-
-.movie_card img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 20rem;
-}
-
-.movie_info {
-    color: #5e5c5c;
-}
-
-.movie_info i {
-    font-size: 20px;
-}
-
-.card-title {
-    width: 80%;
-    height: 4rem;
-}
-
-.movie_single {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0.2rem;
-    /* background-color: var(--secondary-color); */
-    background-color: #9ADCFF;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-    border-radius: 3px;
-    /* border: 3px solid white; */
-    border-radius: 10px;
->>>>>>> modal
 }
 
 .movie img {
@@ -276,28 +194,13 @@ main {
 }
 
 .movie-info {
-<<<<<<< HEAD
-  color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap:0.2rem;
-  padding: 0.5rem 1rem 1rem;
-  letter-spacing: 0.5px;
-=======
-    background-color: rgba(255, 255, 255, 0);
-    padding: 0px;
-    position: absolute;
-    left: 0;
-    bottom: -9px;
-    height: 100%;
-    right: 0;
-    max-height: 26%;
-    transform: translateY(35%);
-    overflow-y: hidden;
-    transition: transform 0.3s ease-in;
-    text-align: center;
->>>>>>> modal
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
 }
 
 .movie-info h6 {
@@ -305,19 +208,11 @@ main {
 }
 
 .movie-info span {
-<<<<<<< HEAD
-  background-color: var(--primary-color);
-  background-color: #bce7ff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 3px;
-  font-weight: bold;
-=======
-    /* background-color: var(--primary-color); */
+    background-color: var(--primary-color);
     background-color: #bce7ff;
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
->>>>>>> modal
 }
 
 .movie-info span.green {
@@ -333,37 +228,22 @@ main {
 }
 
 .overview {
-<<<<<<< HEAD
-  background-color: rgb(247, 244, 246);
-  padding: 2rem;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  max-height: 100%;
-  transform: translateY(101%);
-  overflow-y: auto;
-  transition: transform 0.3s ease-in;
-=======
-    background-color: rgba(255, 255, 255, 0.615);
-    padding: 1rem;
+    background-color: rgb(247, 244, 246);
+    padding: 2rem;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
-    max-height: 5%;
-    transform: translateY(15%);
-    overflow-y: hidden;
+    max-height: 100%;
+    transform: translateY(101%);
+    overflow-y: auto;
     transition: transform 0.3s ease-in;
->>>>>>> modal
 }
 
 .movie:hover .overview {
     transform: translateY(0);
 }
 
-<<<<<<< HEAD
-=======
 @media only screen and (max-width:700px) {
     .col-center {
         width: 95%;
@@ -388,4 +268,3 @@ main {
         height: 77vh;
     }
 }
->>>>>>> modal
