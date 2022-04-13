@@ -60,7 +60,7 @@ function showMovies(movies) {
     main.innerHTML = ''
     main.innerHTML= `
     <div id="addBtn" class="d-flex align-center justify-content-center">
-        <img class="addimg" onClick="addNewMovie('')" src="./img/add_+_Movies.png">
+        <img class="addimg" onClick="showModal('')" src="./img/add_+_Movies.png">
     </div>`
 
     
@@ -95,9 +95,20 @@ async function getOneMovie(url) {
 
 ////////////////////////////////////////////////////////////////////////////////////
 ///CREATE MOVIE
+function showModal() {
+    modal.style.display = 'block';
+    document.getElementById('id').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('coverImage').value = '';
+    document.getElementById('coverImagePic').src = '';
+    document.getElementById('director').value = '';
+    document.getElementById('year').value = '';
+    document.getElementById('synopsis').value = '';
+    document.getElementById('renter').value = '';
+    document.getElementById('booked').value = '';
+    document.getElementById('score').value = '';
+    document.getElementById('mymodal').style.backgroundImage= '';
 
-function addNewMovie() {
-   const cuidao = 23////////////////////////////
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
