@@ -106,6 +106,12 @@
   background-color: rgba(255, 255, 255, 0.747);
   font-weight: bold;
 }
+.rating{
+  display: flex;
+  gap: 1rem;
+  width: 10rem;
+  padding: 1rem;
+}
 
 /*Media queries*/
 @media screen and (max-width: 800px) {
