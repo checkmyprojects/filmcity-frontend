@@ -152,6 +152,114 @@ header {
     flex-wrap: wrap;
 }
 
+.modal-content {
+    background-color: #D4D2D2;
+    font-size: 10pt;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+    /* Adjusts for spacing */
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/* active tab color */
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    background-color: #D4D2D2;
+    border: 1px solid #666;
+    border-style: solid;
+}
+
+.nav-tabs {
+    border-bottom-color: #666;
+}
+
+.nav-tabs>li>a:hover {
+    border-bottom-color: #666;
+}
+
+textarea {
+    resize: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 98%;
+    height: 5em;
+}
+
+
+/*Not Needed is in mainStyles*/
+
+.btn {
+    background-color: #D9D8D8;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #5E6162;
+    font-size: 13px;
+}
+
+.btn:hover {
+    background-color: #E5E4E4;
+    border-color: #098FBB;
+}
+
+thead {
+    background-color: #F7F7F7;
+    width: 100% !important;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #FCD4AC;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background-color: #F7F7F7;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.editable {
+    background-color: white;
+    moz-border-radius: 10px;
+    /* Firefox */
+    -webkit-border-radius: 10px;
+    /* Safari, Chrome */
+    -khtml-border-radius: 10px;
+    /* KHTML */
+    border-radius: 10px;
+    /* CSS3 */
+}
+
+.editable>ul>li:hover {
+    background-color: #B6EBFC
+}
+
+.li_selected {
+    background-color: black;
+    color: white;
+}
+
 .container_search {
     position: absolute;
     z-index: 99999999999;

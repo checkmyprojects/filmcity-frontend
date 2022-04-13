@@ -1,3 +1,40 @@
+$(document).ready(function() {
+    $("#changeButton").click(function() {
+        $("#updateModal").modal();
+    });
+    $('.editable ul').on('click', 'li', function() {
+        if ($(this).hasClass('li_selected')) {
+            $(this).removeClass('li_selected');
+        } else {
+            $(this).addClass('li_selected');
+        }
+    });
+    var mainSutable = $('#mainSutable').DataTable({
+        paging: false,
+        ordering: true,
+        info: false,
+        searching: false,
+        scrollY: '62.2vh',
+        scrollX: true,
+        scrollCollapse: true,
+        drawCallback: function() {
+            $('.dataTables_scrollBody').css('height', '185px'); //forces height to ##px after every redraw
+            $('.dataTables_scrollBody').css('background-image', 'url("https://i.imgur.com/Z9WyhV1.png")'); //force a grid image (self-created) as background, always
+            $('.dataTables_scrollBody').css('background-repeat', 'repeat');
+        },
+    });
+    var text = "CHILDREN'S MEDICAL CENTER OF DISTRICT 7";
+    var name = "Johnathan Hendrix";
+    var telNum = "1234567890";
+    var cusEmail = "longemail@longemail.com";
+    $("#bus-name").html("<span>" + text + "</span>");
+    $("#cusName").append("<span>" + name + "</span>");
+    $("#telNum").append("<span>" + telNum + "</span>");
+    $("#cusEmail").append("<span>" + cusEmail + "</span>");
+});
+
+
+
 const API_URL = 'http://localhost:8080/movies/';
 const movies = [];
 
@@ -68,27 +105,79 @@ function showMovie(movie) {
     const { title, coverImage, synopsis, score, year, id } = movie
     const movieAlone = document.createElement('div')
     movieAlone.classList.add('movie_single')
-    movieAlone.innerHTML = `<div class="modal-header">
-    <a class="left"> <i class="bi bi-pen"></i></a>
-    <button   onclick="deleteOneMovie('${API_URL+id}')"class="left" ><i class="bi bi-trash"></i></button>
-    <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="left"><i class="bi bi-file-plus-fill"></i></a>
+    movieAlone.innerHTML = ` <div class="container mt-2"> 
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+     <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#profile"><i class="bi bi-file-plus-fill"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#contact">
+            <button   onclick="deleteOneMovie('${API_URL+id}')"class="left" ><i class="bi bi-trash"></i></button>
+            </a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link left" data-bs-toggle="tab" href="#edit"> <i class="bi bi-pen"></i></a>
+          </li>
+       
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="row border g-0 rounded shadow-sm">
+                <div class="col p-4">
+                    <h3>"${title}"</h3>
+                    <span>"${year}"</span>
+                    <p>"${synopsis}"</p>
+                </div>
+                <div class="col-auto">
+                    <img src="${coverImage}" class="img-thumbnail dimension">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="profile">
+            <div class="row border g-0 rounded shadow-sm">
+                <div class="col p-4">
+                    <h3>Profile</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="col-auto">
+                    <img src="images/profile.jpg" class="img-thumbnail dimension">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="contact">
+            <div class="row border g-0 rounded shadow-sm">
+                <div class="col p-4">
+                    <h3>Contact</h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="col-auto">
+                    <img src="images/contact.jpg" class="img-thumbnail dimension">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="edit">
+        <div class="row border g-0 rounded shadow-sm">
+            <div class="col p-4">
+                <h3>Edit</h3>
+            </div>
+            <div class="col-auto">
+                <img src="images/contact.jpg" class="img-thumbnail dimension">
+            </div>
+        </div>
+    </div>
+        
+    </div>
 
 </div>
-    <div class="card movie_card">
-    
-        <img src="${coverImage}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
-            </i>
-          <h5 class="card-title">"${title}"</h5>
-                 <span class="movie_info">"${year}"</span>
-                 <p>${synopsis}"</p>
-                 <div class="container">
-                 <span id="rateMe1">"${score}"</span>
-        </div>
-                 
+   
         </div>
       </div>
       </div>
