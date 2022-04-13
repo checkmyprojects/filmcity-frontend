@@ -82,6 +82,7 @@
 }
 #mymodal img{
   max-width: 40%;
+  display: none;
 }
 
 #form{
