@@ -4,6 +4,41 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
+// MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL
+
+// Get the modal
+let modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+// let btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+}
+function showMovieModal(url){
+    modal.style.display = "block";
+    getOneMovie(url)
+}
+
+// MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL
+
+
 // get movies
 getMovies(API_URL)
 
@@ -37,7 +72,7 @@ function showMovies(movies) {
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
-            <img src="${coverImage}" alt="${title}">
+            <img onClick="showMovieModal('${API_URL+movie.id}')" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
            <span class="${getClassByRate(score)}">${score}</span>
@@ -126,6 +161,60 @@ async function getMoviesSearch(url, searchterm) {
     console.log(dataFilter)
     showMovies(dataFilter)
 }
+
+
+// SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE
+
+async function getOneMovie(url) {
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data)
+    printMovie(data)
+}
+async function modifyMovie(data){
+    const response2 = await fetch('http://127.0.0.1:8080/movies', {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+}
+async function printMovie(data){
+    document.getElementById('id').value = data.id
+    document.getElementById('title').value = data.title
+    document.getElementById('coverImage').value = data.coverImage
+    document.getElementById('coverImagePic').src = data.coverImage
+    document.getElementById('director').value = data.director
+    document.getElementById('year').value = data.year
+    document.getElementById('synopsis').value = data.synopsis
+    document.getElementById('renter').value = data.renter
+    document.getElementById('booked').value = data.booked
+    document.getElementById('score').value = data.score
+    document.getElementById('mymodal').style.backgroundImage=`url(${data.coverImage})`;
+
+}
+function saveMovie(){
+    let dataModified = {}
+    dataModified.id = document.getElementById('id').value
+    dataModified.title = document.getElementById('title').value
+    dataModified.coverImage = document.getElementById('coverImage').value
+    dataModified.director = document.getElementById('director').value
+    dataModified.year = document.getElementById('year').value
+    dataModified.synopsis = document.getElementById('synopsis').value
+    dataModified.renter = document.getElementById('renter').value
+    dataModified.booked = document.getElementById('booked').value
+    dataModified.score = document.getElementById('score').value
+    modifyMovie(dataModified);
+
+
+}
+
+// SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE
+
+
+
+
 
 //HAM MENU
 document.addEventListener("DOMContentLoaded", function(){
