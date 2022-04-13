@@ -60,8 +60,10 @@ function showMovies(movies) {
     main.innerHTML = ''
     main.innerHTML= `
     <div id="addBtn" class="d-flex align-center justify-content-center">
-        <img class="addimg" src="./img/add_+_Movies.png">
+        <img class="addimg" onClick="addNewMovie('')" src="./img/add_+_Movies.png">
     </div>`
+
+    
 
     movies.forEach((movie) => {
         const { title, coverImage, synopsis, score } = movie
@@ -91,27 +93,13 @@ async function getOneMovie(url) {
     showMovie(data)
 }
 
-function showMovie(movie) {
-    single_main.innerHTML = '';
-    const { title, coverImage, synopsis, score, year } = movie
-    const movieAlone = document.createElement('div')
-    movieAlone.classList.add('movie_single')
-    movieAlone.innerHTML = `	<div class="card movie_card">
-        <img src="${coverImage}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
-            </i>
-          <h5 class="card-title">"${title}"</h5>
-                 <span class="movie_info">"${year}"</span>
-                 <p>${synopsis}"</p>
-                 <div class="container">
-                 <span id="rateMe1">"${score}"</span>
-                 </div>
-                 
-        </div>
-      </div>`
-    single_main.appendChild(movieAlone)
+////////////////////////////////////////////////////////////////////////////////////
+///CREATE MOVIE
+
+function addNewMovie() {
+   const cuidao = 23////////////////////////////
 }
+
 ////////////////////////////////////////////////////////////////////////////////////
 function getClassByRate(vote) {
     if (vote >= 4) {
