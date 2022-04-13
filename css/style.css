@@ -143,9 +143,10 @@ main {
     justify-content: center;
 }
 #addBtn {
+
   width: 300px;
   margin: 1rem;
-  /*background-color: #9ADCFF;*/
+  /*background-color: #9ADCFF;  COLOR AZUL*/
   background-color: #51ca5bda;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -154,11 +155,13 @@ main {
   border: 3px solid rgba(39, 38, 38, 0.863);
   border-radius: 10px;
 }
-
+.addimg{
+    width: 100%;
+}
 .movie {
   width: 300px;
   margin: 1rem;
-  /*background-color: #9ADCFF;*/
+  /*background-color: #9ADCFF; COLOR AZUL*/
   background-color: #51ca5bda;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   position: relative;
