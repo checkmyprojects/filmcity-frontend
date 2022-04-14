@@ -223,6 +223,25 @@ function saveMovie(){
 
 // SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE
 
+// Function to set the renter
+
+function rentMovieCall(){
+    // take user name from a prompt window and store it
+    let renter = "Usuario"
+    renter = window.prompt("Introduce tu nombre para alquilar", "Usuario");
+    let movieId = document.getElementById('id').value
+    const response2 = fetch(`http://127.0.0.1:8080/movies/${movieId}/book?renter=${renter}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      });
+    console.log(response2)
+    alert("Movie Booked!!!")
+}
+
+
+// end renter function
 
 
 
