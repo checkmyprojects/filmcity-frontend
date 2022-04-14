@@ -78,7 +78,8 @@
 .modal-text{
   color: black;
   font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.747);
+  /* background-color: rgba(255, 255, 255, 0.747); */
+  background-color: rgba(255, 255, 255, 0.473);
 }
 #mymodal img{
   max-width: 40%;
@@ -94,11 +95,12 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: 40%;
+  width: 80%;
 }
 
 #form *{
   margin: 1px 5px;
+  font-size: 2rem;
 }
 
 #mymodal{
@@ -149,4 +151,8 @@
   #form{
     width: 100%;
   }
+  #form *{
+    font-size: 1.3rem;
+  }
+  
 }
