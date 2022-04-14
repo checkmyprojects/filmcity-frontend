@@ -149,21 +149,21 @@ form.addEventListener('submit', (e) => {
             window.location.reload()
         }
     })
-    //animation nave
-const orb = document.querySelector('.orb'),
-    ease = 0.05,
-    start_position = orb.offsetTop;
-let scroll_request = 0,
-    total_offset = 0,
-    animation_running = false;
+//     //animation nave
+// const orb = document.querySelector('.orb'),
+//     ease = 0.05,
+//     start_position = orb.offsetTop;
+// let scroll_request = 0,
+//     total_offset = 0,
+//     animation_running = false;
 
-function animate_scroll() {
-    scroll_request++;
-    if (!animation_running) {
-        animation_running = true;
-        animation_loop();
-    }
-}
+// function animate_scroll() {
+//     scroll_request++;
+//     if (!animation_running) {
+//         animation_running = true;
+//         animation_loop();
+//     }
+// }
 
 async function getMoviesSearch(url, searchterm) {
     const res = await fetch(url)
@@ -204,7 +204,7 @@ async function printMovie(data){
     document.getElementById('renter').value = data.renter
     document.getElementById('booked').value = data.booked
     document.getElementById('score').value = data.score
-    if(data.booked == true){
+    if(data.booked){
         document.getElementById('mymodal').style.backgroundImage=`url(./img/rentedcover.jpg)`;
     }else{
         document.getElementById('mymodal').style.backgroundImage=`url(${data.coverImage})`;
