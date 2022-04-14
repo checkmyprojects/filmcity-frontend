@@ -17,7 +17,7 @@
 }
 
 .bg-form {
-    background-image: url("../images/logo.png");
+    background-image: url("../img/logo.png");
     background-color: #cccccc;
     /* Used if the image is unavailable */
     height: 100%;
@@ -160,6 +160,7 @@ main {
 }
 .addimg{
     width: 100%;
+    object-fit: contain;
 }
 .movie {
   width: 300px;
