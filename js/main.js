@@ -283,13 +283,27 @@ function rentMovie(){
 // delete movie
 async function deleteMovie(){
     let movieId = document.getElementById('id').value;
-    const response2 = await fetch(`http://127.0.0.1:8080/movies/${movieId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      });
-    alert("Movie Deleted!!!")
+    if(movieId != ""){
+        const response2 = await fetch(`http://127.0.0.1:8080/movies/${movieId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-type': 'application/json'
+            }
+          });
+        alert("Movie Deleted!!!")       
+    }else if(movieId == ""){
+        document.getElementById('title').value = '';
+        document.getElementById('titleTop').innerHTML = "Movie Title";
+        document.getElementById('coverImage').value = '';
+        document.getElementById('coverImagePic').src = '';
+        document.getElementById('director').value = '';
+        document.getElementById('year').value = '';
+        document.getElementById('synopsis').value = '';
+        document.getElementById('renter').value = '';
+        document.getElementById('booked').value = '';
+        document.getElementById('score').value = '';
+        document.getElementById('mymodal').style.backgroundImage= '';
+    }
 }
 
 // end delete movie
