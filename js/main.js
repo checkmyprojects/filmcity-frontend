@@ -12,7 +12,7 @@ let buttonRent = document.getElementById('buttonRent')
 // let buttonEdit = document.getElementById('buttonEdit')
 // actions
 buttonDelete.addEventListener("click", deleteMovie)
-buttonRent.addEventListener("click", rentMovie)
+buttonSave.addEventListener("click", saveMovie)
 buttonRent.addEventListener("click", rentMovie)
 
 // ---------------END BUTTONS----------------
@@ -227,11 +227,13 @@ function saveMovie(){
     if(dataModified.id != ""){
         modifyMovie(dataModified);
     }else if(dataModified.id ==""){
+        console.log("nuevo!")
         delete dataModified.id;
         addMovie(dataModified);
     }
 
 async function addMovie(data){
+    console.log(data)
     const response2 = await fetch('http://127.0.0.1:8080/movies', {
         method: 'POST',
         headers: {
