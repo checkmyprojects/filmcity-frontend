@@ -240,3 +240,7 @@ main {
         transition: 0.5s;
     }
 }
+
+.movie > img, #addBtn{
+    cursor: pointer;
+}
