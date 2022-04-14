@@ -8,9 +8,11 @@ const search = document.getElementById('search')
 
 let buttonDelete = document.getElementById('buttonDelete')
 let buttonSave = document.getElementById('buttonSave')
+let buttonRent = document.getElementById('buttonRent')
 // let buttonEdit = document.getElementById('buttonEdit')
 // actions
 buttonSave.addEventListener("click", saveMovie)
+buttonRent.addEventListener("click", rentMovie)
 
 // ---------------END BUTTONS----------------
 
@@ -225,7 +227,7 @@ function saveMovie(){
 
 // Function to set the renter
 
-function rentMovieCall(){
+function rentMovie(){
     // take user name from a prompt window and store it
     let renter = "Usuario"
     renter = window.prompt("Introduce tu nombre para alquilar", "Usuario");

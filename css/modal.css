@@ -117,18 +117,22 @@
   width: 10rem;
   padding: 1rem;
 }
+.rating img{
+  height: 30px;
+  padding: 0;
+}
 
 /* Button span styling */
-#buttonDelete,#buttonSave{
+#buttonDelete,#buttonSave,#buttonRent{
   /* border: 1px solid black; */
   cursor: pointer;
   padding: 0 4px;
 }
-#buttonDelete:hover,#buttonSave:hover{
+#buttonDelete:hover,#buttonSave:hover,#buttonRent:hover{
   background-color: #5CB85C;
   cursor: pointer;
 }
-#buttonDelete:active,#buttonSave:active{
+#buttonDelete:active,#buttonSave:active,#buttonRent:active{
   background-color: #4df84d;
   margin-left: 1px 1px 0;
         box-shadow: -1px -1px 1px #000;
