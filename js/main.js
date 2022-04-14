@@ -4,6 +4,17 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
+// -----------------BUTTONS----------------
+
+let buttonDelete = document.getElementById('buttonDelete')
+let buttonSave = document.getElementById('buttonSave')
+// let buttonEdit = document.getElementById('buttonEdit')
+// actions
+buttonSave.addEventListener("click", saveMovie)
+
+// ---------------END BUTTONS----------------
+
+
 // MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL
 
 // Get the modal
@@ -99,6 +110,7 @@ function showModal() {
     modal.style.display = 'block';
     document.getElementById('id').value = '';
     document.getElementById('title').value = '';
+    document.getElementById('titleTop').innerHTML = "Movie Title";
     document.getElementById('coverImage').value = '';
     document.getElementById('coverImagePic').src = '';
     document.getElementById('director').value = '';
@@ -176,10 +188,12 @@ async function modifyMovie(data){
         },
         body: JSON.stringify(data)
       });
+    alert("Movie Saved!!!")
 }
 async function printMovie(data){
     document.getElementById('id').value = data.id
     document.getElementById('title').value = data.title
+    document.getElementById('titleTop').innerHTML = data.title
     document.getElementById('coverImage').value = data.coverImage
     document.getElementById('coverImagePic').src = data.coverImage
     document.getElementById('director').value = data.director

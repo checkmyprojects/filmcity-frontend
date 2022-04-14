@@ -84,6 +84,11 @@
   max-width: 40%;
   display: none;
 }
+#coverImagePic, #id, #renter, #booked{
+  display: none;
+}
+
+
 
 #form{
   display: flex;
@@ -112,6 +117,25 @@
   width: 10rem;
   padding: 1rem;
 }
+
+/* Button span styling */
+#buttonDelete,#buttonSave{
+  /* border: 1px solid black; */
+  cursor: pointer;
+  padding: 0 4px;
+}
+#buttonDelete:hover,#buttonSave:hover{
+  background-color: #5CB85C;
+  cursor: pointer;
+}
+#buttonDelete:active,#buttonSave:active{
+  background-color: #4df84d;
+  margin-left: 1px 1px 0;
+        box-shadow: -1px -1px 1px #000;
+        outline: 1px solid #000000;
+
+}
+
 
 /*Media queries*/
 @media screen and (max-width: 800px) {

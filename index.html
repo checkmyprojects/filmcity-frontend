@@ -61,7 +61,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h2>Movie Info</h2>
+        <h2 id="titleTop">Movie Info</h2>
       </div>
       <div id="mymodal" class="modal-body">
         <form id="form">
@@ -75,9 +75,9 @@
             <input type="text" id="renter" class="modal-text" placeholder="renter">
             <input type="text" id="booked" class="modal-text" placeholder="booked">
             <input type="text" id="score" class="modal-text" placeholder="score">
-            <button onClick="saveMovie()" id="save">SAVE</button>
+            <!-- <button onClick="saveMovie()" id="save">SAVE</button> -->
           </form>
-          <img onClick="saveMovie()" id="coverImagePic" src="" alt="">
+          <img id="coverImagePic" src="" alt="">
         <!-- <p>Synopsis</p>
         <p>Dinosaurios y más cosas</p>
         <p>Año: 1995</p>
@@ -93,9 +93,11 @@
           <option value="4">⭐⭐⭐⭐</option>
           <option value="5">⭐⭐⭐⭐⭐</option>
         </select>
-        <span>DELETE</span>
-        <span>SAVE</span>
-        <span>EDIT</span>
+        <!-- <span id="buttonDelete">DELETE</span> -->
+        <!-- <span id="buttonSave">SAVE</span> -->
+        <!-- <span id="buttonEdit">EDIT</span> -->
+        <img id="buttonDelete" src="img/delete.png" alt="DELETE">
+        <img id="buttonSave" src="img/edit.png" alt="">
       </article>
       
     </div>
