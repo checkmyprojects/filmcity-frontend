@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:8080/movies/'
 
 const main = document.getElementById('main')
-const form = document.getElementById('form')
+const form = document.getElementById('formTop')
 const search = document.getElementById('search')
 
 // -----------------BUTTONS----------------
@@ -11,7 +11,8 @@ let buttonSave = document.getElementById('buttonSave')
 let buttonRent = document.getElementById('buttonRent')
 // let buttonEdit = document.getElementById('buttonEdit')
 // actions
-buttonSave.addEventListener("click", saveMovie)
+buttonDelete.addEventListener("click", deleteMovie)
+buttonRent.addEventListener("click", rentMovie)
 buttonRent.addEventListener("click", rentMovie)
 
 // ---------------END BUTTONS----------------
@@ -223,8 +224,23 @@ function saveMovie(){
     dataModified.renter = document.getElementById('renter').value
     dataModified.booked = document.getElementById('booked').value
     dataModified.score = document.getElementById('score').value
-    modifyMovie(dataModified);
+    if(dataModified.id != ""){
+        modifyMovie(dataModified);
+    }else if(dataModified.id ==""){
+        delete dataModified.id;
+        addMovie(dataModified);
+    }
 
+async function addMovie(data){
+    const response2 = await fetch('http://127.0.0.1:8080/movies', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+    alert("Movie Saved!!!")
+}
 
 }
 
@@ -264,6 +280,19 @@ function rentMovie(){
 
 // end renter function
 
+// delete movie
+async function deleteMovie(){
+    let movieId = document.getElementById('id').value;
+    const response2 = await fetch(`http://127.0.0.1:8080/movies/${movieId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      });
+    alert("Movie Deleted!!!")
+}
+
+// end delete movie
 
 
 
@@ -281,3 +310,20 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     });
   }); 
+
+
+  const rate = document.getElementById("color");
+
+  rate.addEventListener("change", function()
+  {
+       let data = {}
+       data.score = parseInt(rate.options[rate.selectedIndex].value);
+       
+       fetch(`http://127.0.0.1:8080/movies/${document.getElementById("id").value}/rating`, {
+           method:"PUT",
+           headers: {
+             'Content-type': 'application/json'
+           }, 
+           body: JSON.stringify(data)
+        });
+  });
