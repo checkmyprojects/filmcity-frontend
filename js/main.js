@@ -204,7 +204,12 @@ async function printMovie(data){
     document.getElementById('renter').value = data.renter
     document.getElementById('booked').value = data.booked
     document.getElementById('score').value = data.score
-    document.getElementById('mymodal').style.backgroundImage=`url(${data.coverImage})`;
+    if(data.booked == true){
+        document.getElementById('mymodal').style.backgroundImage=`url(./img/rentedcover.jpg)`;
+    }else{
+        document.getElementById('mymodal').style.backgroundImage=`url(${data.coverImage})`;
+
+    }
 
 }
 function saveMovie(){
