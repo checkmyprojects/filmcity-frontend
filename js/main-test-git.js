@@ -71,7 +71,7 @@ function showMovie(movie) {
     const { title, coverImage, synopsis, score, year, id, booked, director, renter } = movie
     const movieAlone = document.createElement('div')
     movieAlone.classList.add('movie_single')
-    movieAlone.innerHTML = ` <div class="container mt-2"> 
+    movieAlone.innerHTML = ` <div class="container mt-2" id ="myborder"> 
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
      <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -111,15 +111,15 @@ function showMovie(movie) {
                 <div class="col p-4">
                     <h6>Editar Pelicula</h6>
                     <form id="myForm">
-                    <input type="text" id="id" class="search" placeholder="id" style={{diplay:none}}>
-                    <input type="text" id="title" class="search" placeholder="title" value="${title}">
-                    <input type="text" id="coverImage" class="search" placeholder="coverImage" value="${coverImage}">
-                    <input type="text" id="director" class="search" placeholder="director"value="${director}">
-                    <input type="text" id="year" class="search" placeholder="year"value="${year}">
-                    <input type="text" id="synopsis" class="search" placeholder="synopsis" value="${synopsis}">
-                    <input type="text" id="renter" class="search" placeholder="renter" value="${renter}">
-                    <input type="text" id="booked" class="search" placeholder="booked" value="${booked}">
-                    <input type="text" id="score" class="search" placeholder="score" value="${score}">
+                    <input type="text" id="id" name="id" class="search" placeholder="id" style={{diplay:none}}>
+                    <input type="text" id="title" class="search" placeholder="title" name="title" value="${title}">
+                    <input type="text" id="coverImage" name="coverImage"class="search" placeholder="coverImage" value="${coverImage}">
+                    <input type="text" id="director" class="search" name="director"placeholder="director"value="${director}">
+                    <input type="text" id="year" class="search"name="year" placeholder="year"value="${year}">
+                    <input type="text" id="synopsis" class="search" name="synopsis"placeholder="synopsis" value="${synopsis}">
+                    <input type="text" id="renter" class="search" placeholder="renter"name="renter" value="${renter}">
+                    <input type="text" id="booked" class="search" placeholder="booked" name="rent"value="${booked}">
+                    <input type="text" id="score" class="search" placeholder="score" name="score"value="${score}">
                      <button  onclick="testingUpdate()">Update</button>
                   </form>
                 </div>
@@ -129,16 +129,18 @@ function showMovie(movie) {
             </div>
         </div>
         <div class="tab-pane" id="create">
+      
             <div class="row border g-0 rounded shadow-sm">
             <div class="col-center" id="container">
 
-            <form class="col-md-12 bg-form">
+            <form class="col-md-12 bg-form" id="createMovie">
                 <div class="orb">
                     <img src="images/nave.png" alt="nave">
                 </div>
+                
                 <div class="mb-3 custom-size">
                     <label for="title " class="form-label ">title</label>
-                    <input type="text " class="form-control bg-input-padding" id="title " aria-describedby="emailHelp ">
+                    <input type="text " class="form-control bg-input-padding" id="title " aria-describedby="emailHelp" name="title">
                 </div>
                 <div class="mb-3 custom-size">
                     <label for="coverImage" class="form-label ">Imagen</label>
@@ -160,9 +162,8 @@ function showMovie(movie) {
                     <input type="checkbox" class="form-check-input" id="renter ">
                     <label class="form-check-label" for="renter">Alquilada</label>
                 </div>
-                <button type="submit " onclick="saveMovie()" class="btn btn-primary right">Enviar</button>
-                <button type="button" class="btn btn-primary"><span class="bi bi-trash"></span> Borrar</button>
-                <button type="button" class="btn btn-primary"><span class="bi bi-brush"></span> Editar</button>
+                <button type="button" onclick="testingUpdate()" class="btn btn-primary right">crear</button>
+              
     
             </form>
         </div>
@@ -174,7 +175,7 @@ function showMovie(movie) {
         <div class="col p-4">
         <h6>Editar Pelicula</h6>
         <form id="formAndRate">
-        <input type="text" id="id" class="search" placeholder="id" style={{diplay:none}}>
+        <input type="text" id="id"  class="search" placeholder="id" style={{diplay:none}}>
         <input type="text" id="renter" class="search" placeholder="renter" value="${renter}">
         <input type="text" id="booked" class="search" placeholder="booked" value="${booked}">
         <input type="text" id="score" class="search" placeholder="booked" value="${score}">
@@ -186,11 +187,8 @@ function showMovie(movie) {
           <option value="4">⭐⭐⭐⭐</option>
           <option value="5">⭐⭐⭐⭐⭐</option>
         </select>
-        <span>DELETE</span>
-        <span>SAVE</span>
-        <span>EDIT</span>
       </article>
-         <button  onclick="rentMovie()">Rent&Rate</button>
+         <button  onclick="testingUpdate()">Rent&Rate</button>
       </form>
     </div>
     <div class="col-auto">
@@ -214,13 +212,74 @@ function showMovie(movie) {
      </div>
       </div>
     `
+
+
     single_main.appendChild(movieAlone)
 }
+const titleInput = document.querySelector('input[name="title"]').value; //selecting the input with name property "name"
+const coverImageInput = document.querySelector('input[name="coverImage"]')
+const idInput = document.querySelector('input[name="id"]') //selecting the input with name property "name"
+const directorInput = document.querySelector('input[name="director"]') //selecting the input with name property "name"
+const yearInput = document.querySelector('input[name="year"]')
+const synopsisInput = document.querySelector('input[name="synopsis"]') //selecting the input with name property "name"
+const scoreInput = document.querySelector('input[name="score"]')
+const rentInput = document.querySelector('input[name="rent"]') //selecting the input with name property "name"
+const renterInput = document.querySelector('input[name="renter"]')
+
 
 function testingUpdate() {
-    const form = document.getElementById("myForm");
-    console.log(form)
+    const form = document.getElementById("createMovie");
+    console.log('clickedeee')
+    console.log(titleInput)
 }
+
+const createMovie = () => {
+    const formData = new FormData(document.querySelector('#createMovie'));
+
+    if (!formData.get('titleInput').length || !formData.get('coverImageInput') || !formData.get('directorInput')) {
+        document.querySelector('#msgFormAdd').innerHTML = '* Llena todos los campos';
+        return;
+    }
+    document.querySelector('#msgFormAdd').innerHTML = '';
+
+    const movie = {
+        title: formData.get('title'),
+        coverImage: formData.get('coverImage'),
+        director: formData.get('director'),
+        year: formData.get('year'),
+        synopsis: formData.get('synopsis'),
+    }
+
+    console.log(movie)
+
+    fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify(movie),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .catch(error => {
+            alertManager('error', error);
+            document.querySelector('#formAdd').reset();
+        })
+        .then(response => {
+            alertManager('success', response.mensaje)
+            showMovies();
+        })
+}
+
+
+const updateData = () => {
+    const title = titleInput.value //store value from name input into name variable
+    const id = idInput.value //store value from age input into age variable
+    const newMovie = { title, id } // create new person object
+    people.push(newMovie) //push the new person object into the array
+    renderData() //render the data again so it reflects the new data
+}
+
+
 async function createNewProfile(profile) {
     const formData = new FormData();
     formData.append('first_name', profile.firstName);
@@ -245,12 +304,7 @@ async function deleteOneMovie(urlId) {
     console.log(` the movie to delete is ${urlId}`)
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    const value = data.get('id', 'title', 'year', 'director', 'synopsis', 'score', 'renter');
-    console.log({ value });
-}
+
 
 
 
@@ -283,7 +337,7 @@ async function modifyMovie(data) {
     window.location.reload()
     console.log(` the movie to update is ${data.id}`)
 }
-async function createMovie(data) {
+async function createMovieotherway(data) {
     const response2 = await fetch('http://127.0.0.1:8080/movies', {
         method: 'POST',
         headers: {
