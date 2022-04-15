@@ -75,7 +75,7 @@ function showMovies(movies) {
             <img onClick="showMovieModal('${API_URL+movie.id}')" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
-           <span class="${getClassByRate(score)}">${score}</span>
+           <span id="publicScore" class="${getClassByRate(score)}">${score}</span>
             </div>
             <div class="overview">
           <h3>Synopsis</h3>
@@ -191,6 +191,12 @@ async function printMovie(data){
     document.getElementById('mymodal').style.backgroundImage=`url(${data.coverImage})`;
 
 }
+
+function clamp(value, min, max)
+{
+    return value < min ? min : value > max ? max : value;
+}
+
 function saveMovie(){
     let dataModified = {}
     dataModified.id = document.getElementById('id').value
@@ -201,8 +207,14 @@ function saveMovie(){
     dataModified.synopsis = document.getElementById('synopsis').value
     dataModified.renter = document.getElementById('renter').value
     dataModified.booked = document.getElementById('booked').value
-    dataModified.score = document.getElementById('score').value
-    document.getElementById("color").selectedIndex = parseInt(dataModified.score) - 1;
+    let amazinggg = document.getElementById('score').value;
+    let amazing = clamp(parseInt(amazinggg), 1, 5);
+    document.getElementById('score').textContent = amazing;
+    dataModified.score = amazing;
+    let amazingg = document.getElementById("publicScore");
+    amazingg.textContent = amazing;
+    amazingg.style.color = getClassByRate(amazing);
+    document.getElementById("color").selectedIndex = amazing - 1;
     modifyMovie(dataModified);
 }
 
