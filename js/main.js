@@ -202,9 +202,8 @@ function saveMovie(){
     dataModified.renter = document.getElementById('renter').value
     dataModified.booked = document.getElementById('booked').value
     dataModified.score = document.getElementById('score').value
+    document.getElementById("color").selectedIndex = parseInt(dataModified.score) - 1;
     modifyMovie(dataModified);
-
-
 }
 
 // SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE
