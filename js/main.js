@@ -226,11 +226,3 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     });
   });
-
-  const rate = document.getElementById("color");
-
-  rate.addEventListener("change", function()
-  {
-      await fetch(`http://127.0.0.1:8080/movies/${document.getElementById("id").value}/rating`, {method:"PUT", body: {'score': parseInt(rate.options[rate.selectedIndex].value)}});
-      showMovies(await (await fetch('http://127.0.0.1:8080/movies/')).json());
-  });
