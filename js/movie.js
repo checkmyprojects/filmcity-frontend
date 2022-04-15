@@ -62,6 +62,22 @@ function saveMovie() {
     window.location.href = "index.html";
 }
 
+function updateMovie() {
+    let dataModified = {}
+    dataModified.id = document.getElementById('id').value
+    dataModified.title = document.getElementById('title').value
+    dataModified.coverImage = document.getElementById('coverImage').value
+    dataModified.director = document.getElementById('director').value
+    dataModified.year = document.getElementById('year').value
+    dataModified.synopsis = document.getElementById('synopsis').value
+    dataModified.renter = document.getElementById('renter').value
+    dataModified.booked = document.getElementById('booked').value
+    dataModified.score = document.getElementById('score').value
+    modifyMovie(dataModified);
+    window.location.href = "index.html";
+}
+
+
 
 
 /*
