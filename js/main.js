@@ -75,7 +75,7 @@ function showMovies(movies) {
             <img onClick="showMovieModal('${API_URL+movie.id}')" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
-           <span class="${getClassByRate(score)}">${score}</span>
+           <span id="public_score" class="${getClassByRate(score)}">${score}</span>
             </div>
             <div class="overview">
           <h3>Synopsis</h3>
@@ -202,14 +202,11 @@ function saveMovie(){
     dataModified.renter = document.getElementById('renter').value
     dataModified.booked = document.getElementById('booked').value
     dataModified.score = document.getElementById('score').value
+    document.getElementById("color").selectedIndex = parseInt(dataModified.score) - 1;
     modifyMovie(dataModified);
-
-
 }
 
 // SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE SINGLE MOVIE
-
-
 
 
 
@@ -226,12 +223,4 @@ document.addEventListener("DOMContentLoaded", function(){
         document.body.removeChild(document.querySelector('.screen-darken'));
       });
     });
-  });
-
-  const rate = document.getElementById("color");
-
-  rate.addEventListener("change", function()
-  {
-      await fetch(`http://127.0.0.1:8080/movies/${document.getElementById("id").value}/rating`, {method:"PUT", body: {'score': parseInt(rate.options[rate.selectedIndex].value)}});
-      showMovies(await (await fetch('http://127.0.0.1:8080/movies/')).json());
   });
