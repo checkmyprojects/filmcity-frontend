@@ -85,7 +85,7 @@
   max-width: 40%;
   display: none;
 }
-#coverImagePic, #id, #renter, #booked{
+#coverImagePic, #id, #renter, #booked, #score{
   display: none;
 }
 
@@ -110,7 +110,7 @@
 }
 
 #synopsis{
-  background-color: rgba(255, 255, 255, 0.747);
+  background-color: rgba(255, 255, 255, 0.473);
   font-weight: bold;
 }
 .rating{
@@ -142,6 +142,10 @@
 
 }
 
+#starsModal{
+  background-color: rgba(255, 255, 255, 0.473);
+  border: 1px solid #888;
+}
 
 /*Media queries*/
 @media screen and (max-width: 800px) {

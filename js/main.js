@@ -125,6 +125,7 @@ function showModal() {
     document.getElementById('booked').value = '';
     document.getElementById('score').value = '';
     document.getElementById('mymodal').style.backgroundImage= '';
+    document.getElementById('starsModal').innerText = ""
 
 }
 
@@ -207,6 +208,7 @@ async function printMovie(data){
     document.getElementById('renter').value = data.renter
     document.getElementById('booked').value = data.booked
     document.getElementById('score').value = data.score
+    document.getElementById('starsModal').innerText = getStars(data.score);
     if(data.booked){
         document.getElementById('mymodal').style.backgroundImage=`url(./img/rentedcover.jpg)`;
     }else{
@@ -325,7 +327,7 @@ function getRented(rented){
 // RETURN STARS
 function getStars(score){
     if(score==0){
-        return "👎👎👎👎👎"
+        return "💩💩💩💩💩"
     }if(score==1){
         return "⭐"
     }if(score==2){
