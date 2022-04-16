@@ -199,6 +199,7 @@ main {
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-weight: bold;
+  display: none;
 }
 
 .movie-info span.green {
@@ -243,4 +244,20 @@ main {
 
 .movie > img, #addBtn{
     cursor: pointer;
+}
+
+.rented{
+    position: absolute;
+    display: inline;
+}
+.not-rented{
+    display: none;
+}
+
+.testeo{
+    position: absolute;
+    display: block;
+    padding: 0 1rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
 }

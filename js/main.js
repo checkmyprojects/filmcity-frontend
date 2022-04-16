@@ -86,6 +86,8 @@ function showMovies(movies) {
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
+            <img class="${getRented(movie.booked)}" src="./img/rented.png" alt="${title}">
+            <span class="testeo">${getStars(score)}</span>
             <img onClick="showMovieModal('${API_URL+movie.id}')" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
@@ -310,7 +312,33 @@ async function deleteMovie(){
 
 // end delete movie
 
+// RENTED or NOT?
+function getRented(rented){
+    if (rented==true){
+        return "rented";
+    }else if(rented==false){
+        return "not-rented"
+    }
+}
+// 
 
+// RETURN STARS
+function getStars(score){
+    if(score==0){
+        return "👎👎👎👎👎"
+    }if(score==1){
+        return "⭐"
+    }if(score==2){
+        return "⭐⭐"
+    }if(score==3){
+        return "⭐⭐⭐"
+    }if(score==4){
+        return "⭐⭐⭐⭐"
+    }if(score==5){
+        return "⭐⭐⭐⭐⭐"
+    }
+}
+// 
 
 //HAM MENU
 document.addEventListener("DOMContentLoaded", function(){
