@@ -87,7 +87,7 @@ function showMovies(movies) {
 
         movieEl.innerHTML = `
             <img class="${getRented(movie.booked)}" src="./img/rented.png" alt="${title}">
-            <span class="testeo">${getStars(score)}</span>
+            <span class="stars">${getStars(score)}</span>
             <img onClick="showMovieModal('${API_URL+movie.id}')" src="${coverImage}" alt="${title}">
             <div class="movie-info">
           <h3>${title}</h3>
