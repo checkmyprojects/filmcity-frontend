@@ -289,8 +289,6 @@ ul {
     color: #fff;
     line-height: 1.7rem;
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .search::placeholder {
@@ -332,6 +330,29 @@ main {
     height: 45vh;
     /* background-color: var(--secondary-color); */
     background-color: #9ADCFF;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    /* border: 3px solid white; */
+    border-radius: 10px;
+}
+
+.movie-rented {
+    margin: 1rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgb(246, 87, 158);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 5%;
+    margin: 0.2rem;
+    height: 45vh;
+    /* background-color: var(--secondary-color); */
+    background-color: transparent;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
@@ -383,6 +404,12 @@ main {
     border-radius: 10px;
 }
 
+.rating {
+    margin-top: -13px;
+    margin-left: 7px;
+    color: #1d3543;
+}
+
 .movie img {
     max-width: 735px;
     max-width: 735px;
@@ -392,43 +419,70 @@ main {
     height: 40vh;
 }
 
+select {
+    background-color: transparent;
+    border: none;
+}
+
+.star,
+.star-clear {
+    padding: 0.1em;
+    font-size: 2em;
+    cursor: pointer;
+}
+
 .movie-info {
     color: #eee;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 0.2rem;
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(43 174 219 / 77%);
     padding: 0px;
     position: absolute;
     left: 0;
-    bottom: -9px;
+    bottom: -27px;
     height: 100%;
+    width: 100%;
     right: 0;
-    max-height: 26%;
+    max-height: 41%;
     transform: translateY(35%);
     overflow-y: hidden;
     transition: transform 0.3s ease-in;
     text-align: center;
+    align-items: baseline;
+    font-size: 0.7rem;
 }
 
 .movie-info h6 {
-    margin-top: 0;
+    margin-top: -13px;
+    margin-left: 7px;
+    color: #1d3543;
+}
+
+#card-img {
+    max-width: 50%;
+}
+
+.img-thumbnail {
+    max-width: 100%!important;
+}
+
+.stars {
+    margin-top: -0.5rem;
 }
 
 .movie-info span {
-    background-color: var(--primary-color);
-    background-color: #bce7ff;
-    padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
-    /* background-color: var(--primary-color); */
-    background-color: #bce7ff;
-    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    padding: 0px;
     border-radius: 3px;
     font-weight: bold;
+    font-size: 0.7rem;
 }
 
 .movie-info span.green {
@@ -485,6 +539,37 @@ main {
 }
 */
 
+
+/* stars css brad traversy*/
+
+.stars-outer {
+    position: relative;
+    display: inline-block;
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ccc;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f8ce0b;
+}
+
 @media only screen and (max-width:700px) {
     .col-center {
         width: 95%;
@@ -503,7 +588,7 @@ main {
     }
     .movie {
         overflow: initial;
-        height: 68vh;
+        height: 76vh;
     }
     .movie img {
         height: 77vh;
