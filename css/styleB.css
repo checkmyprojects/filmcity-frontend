@@ -74,6 +74,10 @@ img {
     margin-right: 0.5rem;
 }
 
+.font-size {
+    font-size: 0.78rem;
+}
+
 .form-label {
     margin-left: 1rem;
     background-color: #ffffffc2;

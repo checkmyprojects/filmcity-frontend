@@ -91,7 +91,7 @@ function showMovie(movie) {
     <div class="tab-content">
         <div class="tab-pane active" id="home">
             <div class="row border g-0 rounded shadow-sm">
-                <div class="col p-4">
+                <div class="col p-4 font-size">
                     <h3>"${title}"</h3>
                     <span>"${year}"</span>
                     <h6> Director:${director}</h6>
