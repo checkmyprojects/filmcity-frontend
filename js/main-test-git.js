@@ -73,9 +73,10 @@ function showMovie(movie) {
             <a class="nav-link" data-bs-toggle="tab"  href="#create"><i class="bi bi-file-plus-fill"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#delete">
-            <a  onclick="deleteOneMovie('${API_URL+id}')"class="nav-link left" ><i class="bi bi-trash"></i></a>
+            <a onclick="deleteOneMovie('${API_URL+id}')"class="nav-link" data-bs-toggle="tab" href="#delete"" >
+             <i class="bi bi-trash"></i>
             </a>
+           
         </li>
         <li class="nav-item">
            <a class="nav-link left" data-bs-toggle="tab" href="#edite" > <i class="bi bi-pen"></i></a>
@@ -92,14 +93,13 @@ function showMovie(movie) {
         <div class="tab-pane active" id="home">
             <div class="row border g-0 rounded shadow-sm">
                 <div class="col p-4 font-size">
-                    <h3>"${title}"</h3>
-                    <span>"${year}"</span>
-                    <h6> Director:${director}</h6>
+                    <h3 style="margin-top: -10%;">"${title}"</h3>
+                    <h6 > Director:${director}</h6>
                     <p>"${synopsis}"</p>
+                    <span >"${year}"</span>
                 </div>
-                <div class="col-auto" id="card-img">
+                <div class="col-auto" id="card-img" ${booked}?style:"opacity":0.5;:>
                     <img src="${coverImage}" class="img-thumbnail dimension">
-                   
                 </div>
             </div>
         </div>
@@ -109,20 +109,33 @@ function showMovie(movie) {
                     <h6>Editar Pelicula</h6>
                     <form id="updateMovie">
                     <input type="text" id="id" name="id" class="search" placeholder="id" value="${id}"style={{diplay:none}}>
+                    <div class="mb-3 custom-size">
+                    <label for="title" class="form-label ">titulo</label>
                     <input type="text" id="title" class="search" placeholder="title" name="title" value="${title}">
+                    </div>
+                    <div class="mb-3 custom-size">
+                    <label for="coverImage" class="form-label ">Imagen</label>
                     <input type="text" id="coverImage" name="coverImage"class="search" placeholder="coverImage" value="${coverImage}">
+                    </div>
+                    <div class="mb-3 custom-size">
+                    <label for="director" class="form-label ">Director</label>
                     <input type="text" id="director" class="search" name="director"placeholder="director"value="${director}">
-                    <input type="text" id="year" class="search"name="year" placeholder="year"value="${year}">
+                    </div>
+                    <div class="mb-3 custom-size">
+                    <label for="year" class="form-label ">año</label>
+                    <input type="number" id="year" class="search"name="year" placeholder="year"value="${year}">
+                    </div>
+                    <div class="mb-3 custom-size">
+                    <label for="synopsis" class="form-label ">Synopsis</label>
                     <input type="text" id="synopsis" class="search" name="synopsis"placeholder="synopsis" value="${synopsis}">
+                    </div>
                     <input type="text" id="renter" class="search" placeholder="renter"name="renter" value="${renter}">
                     <input type="text" id="booked" class="search" placeholder="booked" name="rent"value="${booked}">
                     <input type="text" id="score" class="search" placeholder="score" name="score"value="${score}">
                      <button type="button"  onclick="testingUpdate()">Update</button>
                   </form>
                 </div>
-                <div class="col-auto">
-                   img id="coverImagePic" src="${coverImage}" alt=""> 
-                </div>
+                
             </div>
         </div>
         <div class="tab-pane" id="create">
@@ -155,13 +168,7 @@ function showMovie(movie) {
                     <label for="synopsis" class="form-label ">synopsis</label>
                     <textarea type="text" class="form-control bg-input-padding" id="synopsis"></textarea>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="renter ">
-                    <label class="form-check-label" for="renter">Alquilada</label>
-                </div>
                 <button type="button" onclick="createMovie()" class="btn btn-primary right">crear</button>
-              
-    
             </form>
         </div>
                
@@ -170,11 +177,11 @@ function showMovie(movie) {
         <div class="tab-pane" id="rent">
         <div class="row border g-0 rounded shadow-sm">
         <div class="col p-4">
-        <h6>Editar Pelicula</h6>
+        <h6>Alquilar pelicula Pelicula</h6>
         <form id="rentMovie">
-<input type="text" id="id" class="search" name="id" placeholder="id" style={{diplay:none}} value="${id}">
+        <input type="text" id="id" class="search" name="id" placeholder="id" style=diplay:none value="${id}">
         <input type="text" id="renter" name ="renter"class="search" placeholder="renter" value="${renter}">
-        <input type="text" id="booked" name ="booked" class="search" placeholder="booked" value="${booked}">
+       
        
           <button type="button" onclick="rentMovie()">Rent</button>
       </form>
@@ -203,9 +210,7 @@ function showMovie(movie) {
             <div class="col p-4">
                 <h3>delete</h3>
             </div>
-            <div class="col-auto">
-                <img src="images/contact.jpg" class="img-thumbnail dimension">
-            </div>
+           
         </div>
       </div>
    </div>
@@ -217,7 +222,7 @@ function showMovie(movie) {
     single_main.appendChild(movieAlone)
 }
 /*
-        @PutMapping("/movies/{id}/book")
+@PutMapping("/movies/{id}/book")
 @PutMapping("/movies/{id}/return")
 @PutMapping("/movies/{id}/rating")
 String renter = null;
@@ -233,10 +238,7 @@ function rateMovie() {
 */
     const movie = {
         id: formData.get('id'),
-        book: formData.get('book'),
-        score: formData.get('score'),
-        renter: formData.get('renter')
-
+        score: formData.get('score')
     }
 
     fetch(`http://127.0.0.1:8080/movies/${movie.id}/rating`, {
@@ -256,7 +258,7 @@ function rateMovie() {
             showMovies();
         })
 
-    console.log(` the movie to rate and rate is ${movie.title}`)
+    console.log(` the movie to rate and rate is ${movie.score}`)
     window.location.reload()
 
 }
